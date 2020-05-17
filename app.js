@@ -89,18 +89,19 @@ Test this function by hand in the console to get it working, and when you think 
 var testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) { //eslint-disable-line
-    var sum=0;
-    for (var i=0; i <sumArr.length; i++) {
-       sum+= sumArr[i]; 
-            }
-            var sumRes= `2,3,4 was passed in as an array of numbers, and ${sum} is their sum.`
-            return [sum,sumRes];
+     var sum1=sum(sumArr[0], sum(sumArr[1],sumArr[2])[0])[0];
+   // var sum=0;
+    //for (var i=0; i <sumArr.length; i++) {
+       //sum+= sumArr[i]; 
+           // }
+            var sumRes= `2,3,4 was passed in as an array of numbers, and ${sum1} is their sum.`
+            return [sum1,sumRes];
 
 }
 
 // Here is the test for sumArray(); uncomment it to run it
 //testArray
- testSumArray(testArray);
+ testSumArray();
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -151,16 +152,21 @@ Test this function by hand in the console to get it working, and when you think 
 var testDynamicArray = [1, 2, 3, 4, 5]; //eslint-disable-line
 var dynamicArray=[];
 function multiplyAnyArray(dynamicArray) { //eslint-disable-line
-var multi1 =multiply(1, 2)[0];
-var multi2 =multiply(multi1,3)[0];
-var multi3 =multiply(multi2,4)[0];
-var multi4 =multiply(multi3,5)[0];
-var multiMsg= `The numbers 1,2,3,4,5 have a product of ${multi4}.`
-return [multi4,multiMsg];
+    var mul1=1;
+    for (var i=0; i <dynamicArray.length; i++) {
+        mul1=multiply(mul1,dynamicArray[i])[0];
+//var multi1 =multiply(1, 2)[0];
+//var multi2 =multiply(multi1,3)[0];
+//var multi3 =multiply(multi2,4)[0];
+//var multi4 =multiply(multi3,5)[0];
+var multiMsg= `The numbers 1,2,3,4,5 have a product of ${mul1}.`
+    }
+return [mul1,multiMsg];
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
 // testDynamicArray
+
  testMultiplyAnyArray(dynamicArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. You're done! Submit the link to the repo following the instructions in Canvas.
